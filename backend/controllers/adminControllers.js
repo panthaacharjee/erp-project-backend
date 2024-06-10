@@ -1062,7 +1062,7 @@ exports.unpaidCustomer = catchAsyncError(async (req, res, next) => {
   let clientD = [];
   for (var i = 0; i < client.length; i++) {
     clientD.push({
-      amount: client[i].activeProject.due,
+      amount: client[i].activeProject ? client[i].activeProject.due : 0,
       client: client[i],
     });
   }
