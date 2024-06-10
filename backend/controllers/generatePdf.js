@@ -18,12 +18,14 @@ exports.meterialExpensesGenaratePdf = catchAsyncError(
     //   },
     // }).populate("totalExpenses");
 
+    /* Start */
+
     const project = await Project.findById(req.params.id)
       .sort({ createdAt: -1 })
       .populate("totalExpenses");
     let date = new Date(req.body.date);
     const expensesArray = project.totalExpenses.filter(
-      (val) => val.createdAt >= date
+      (val) => val.createdAt.getTime() >= date.getTime()
     );
 
     let array = [];
@@ -100,7 +102,7 @@ exports.labourExpensesGenaratePdf = catchAsyncError(async (req, res, next) => {
     .populate("labourExpenses");
   let date = new Date(req.body.date);
   const expensesArray = project.labourExpenses.filter(
-    (val) => val.createdAt >= date
+    (val) => val.createdAt.getTime() >= date.getTime()
   );
 
   let array = [];
