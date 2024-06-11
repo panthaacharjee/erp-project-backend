@@ -49,7 +49,7 @@ exports.meterialExpensesGenaratePdf = catchAsyncError(
       "utf-8"
     );
     const number = Math.floor(Math.random() * 10);
-    const filename = "meterial-expenses" + `_doc${number}` + ".pdf";
+    const filename = "meterial-expenses" + `_doc` + ".pdf";
 
     let totalExpenses = 0;
     expensesArray.forEach((i) => {
