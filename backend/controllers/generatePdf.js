@@ -5,6 +5,7 @@ const path = require("path");
 const pdf = require("pdf-creator-node");
 const fs = require("fs");
 const options = require("../utils/options");
+const { randomInt } = require("crypto");
 /* ===================================================
        Meterial Generate Pdf  (/api/v1/meterial/pdf/generator) (req : get)
    =================================================== */
@@ -47,7 +48,8 @@ exports.meterialExpensesGenaratePdf = catchAsyncError(
       path.join(__dirname, "../utils/pdf/meterialExpenses.html"),
       "utf-8"
     );
-    const filename = "meterial-expenses" + "_doc" + ".pdf";
+    const number = Math.floor(Math.random() * 10);
+    const filename = "meterial-expenses" + `_doc ${number}` + ".pdf";
 
     let totalExpenses = 0;
     expensesArray.forEach((i) => {
