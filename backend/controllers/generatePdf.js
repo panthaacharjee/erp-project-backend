@@ -49,7 +49,7 @@ exports.meterialExpensesGenaratePdf = catchAsyncError(
       "utf-8"
     );
     const number = Math.floor(Math.random() * 10);
-    const filename = "meterial-expenses" + `_doc ${number}` + ".pdf";
+    const filename = "meterial-expenses" + `_doc${number}` + ".pdf";
 
     let totalExpenses = 0;
     expensesArray.forEach((i) => {
@@ -125,7 +125,8 @@ exports.labourExpensesGenaratePdf = catchAsyncError(async (req, res, next) => {
     path.join(__dirname, "../utils/pdf/labourExpenses.html"),
     "utf-8"
   );
-  const filename = "labour-expenses" + "_doc" + ".pdf";
+  const number = Math.floor(Math.random() * 10);
+  const filename = "labour-expenses" + `_doc${number}` + ".pdf";
 
   let totalExpenses = 0;
   expensesArray.forEach((i) => {
